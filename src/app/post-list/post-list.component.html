@@ -1,0 +1,18 @@
+<a routerLink="/add-post" class="btn btn-success mb-5 mt-2">Add New Post</a>
+
+<div *ngIf="posts.length > 0; else displayLoader">
+  <div class="card mb-3" *ngFor="let post of posts">
+    <div class="card-header">{{post.id}}. {{post.title}}</div>
+    <div class="card-body">
+      <p>{{post.body}}</p>
+      <a class="text-info" [routerLink]="['/post/'+ post.id]">read more</a>
+    </div>
+  </div>
+</div>
+
+<ng-template #displayLoader>
+  <div class="d-flex align-items-center justify-content-center">
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw text-warning"></i>
+  </div>
+</ng-template>
+

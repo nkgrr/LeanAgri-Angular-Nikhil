@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-sm-6 m-auto">
+    <div class="card mt-5">
+      <div class="card-header">
+        Add Post
+      </div>
+      <div class="card-body">
+        <form [formGroup]="addPostForm" (submit)="submitPost()">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" formControlName="title" required>
+          </div>
+          <div class="form-group">
+            <label>Body</label>
+            <textarea formControlName="body" class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Post</button>
+          <a routerLink="/" class="btn btn-warning float-right">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

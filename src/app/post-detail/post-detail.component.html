@@ -1,0 +1,30 @@
+<a class="btn btn-primary mb-5 mt-2" routerLink="/">Go Back</a>
+
+<div class="jumbotron" *ngIf="post; else displayLoader">
+  <h1>{{post.title}}</h1>
+  <p>{{post.body}}</p>
+  <hr>
+  <a class="btn btn-success float-right" [routerLink]="['/edit-post/' + postId]">Edit Post</a>
+</div>
+
+<div *ngIf="comments">
+  <h1>Comments</h1>
+  <hr>
+  <div class="card mb-3" *ngFor="let comment of comments">
+    <div class="card-header">
+      <span>
+        <i class="fa fa-user"></i> {{comment.name}}
+        <span class="float-right"><i class="fa fa-envelope"></i> {{comment.email}}</span>
+      </span>
+    </div>
+    <div class="card-body">
+      <p>{{comment.body}}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #displayLoader>
+  <div class="d-flex align-items-center justify-content-center">
+    <i class="fa fa-spinner fa-spin fa-3x fa-fw text-warning"></i>
+  </div>
+</ng-template>
